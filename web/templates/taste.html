@@ -1,0 +1,751 @@
+<!DOCTYPE HTML>
+<!--
+	Greatness by FreeHTML5.co
+	Twitter: http://twitter.com/fh5co
+	URL: http://FreeHTML5.co
+-->
+
+<style>
+
+.zoom:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+}
+
+
+/* The container */
+.case {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.case input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.case:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.case input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.case input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.case .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.slidecase {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+</style>
+<html>
+	<header>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Greatness &mdash; Free Website Template, Free HTML5 Template by FreeHTML5.co</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FreeHTML5.co" />
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	
+
+		<!-- Animate.css -->
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/animate.css') }}">
+		<!-- Icomoon Icon Fonts-->
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/icon.css') }}">
+
+
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/test.css') }}">
+
+
+
+
+	<!-- Animate.css -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/animate.css') }}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/icomoon.css') }}">
+	<!-- Bootstrap  -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.css') }}">
+
+	<!-- Magnific Popup -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/magnific-popup.css') }}">
+
+	<!-- Owl Carousel  -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/owl.carousel.min.css') }}">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/owl.theme.default.min.css') }}">
+	
+	<!-- Theme style  -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+	<!-- Modernizr JS -->
+	<script type="text/javascript" src="{{ url_for('static', filename='modernizr-2.6.2.min.js') }}"></script>
+
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+    <div class="gtco-loader"></div>
+	
+	<div id="page">
+			<nav class="gtco-nav" role="navigation">
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-xs-2">
+								<div id="gtco-logo"><a href="{{url_for('home')}}">PFE NETFLIX</a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<li class="active"><a href="{{url_for('home')}}">Home</a></li>
+                                <li><a href="{{url_for('account')}}">Account</a></li>
+                                <li><a href="{{url_for('start')}}">Exit</a></li>
+								
+								
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+			</nav>
+            <header id="gtco-header" class="gtco-cover" role="banner" style="background-color: rgb(18, 18, 18);">
+                <div class="overlay"></div>
+                <div class="gtco-container">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-0 text-center">
+                            <div class="display-t">
+                                <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                                    <h1>Choose your </br> preferences</h1>
+                                    
+                                        <a href="#movies" class="btn btn-primary btn-lg">Get Started</a> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+            
+        
+                <div id="gtco-services">
+                    <div class="gtco-container">
+                        
+                    
+            
+                        <div class="row animate-box">
+                            
+                            <div class="gtco-tabs">
+                                <ul class="gtco-tab-nav">
+                                    <li class="active"><a href="#" data-tab="1"><span class="icon visible-xs"><i class="icon-command"></i></span><span class="hidden-xs">Movie</span></a></li>
+                                    <li><a href="#" data-tab="2"><span class="icon visible-xs"><i class="icon-bar-graph"></i></span><span class="hidden-xs">Actor</span></a></li>
+                                    <li><a href="#" data-tab="3"><span class="icon visible-xs"><i class="icon-bag"></i></span><span class="hidden-xs">Director</span></a></li>
+                                    <li><a href="#" data-tab="4"><span class="icon visible-xs"><i class="icon-box"></i></span><span class="hidden-xs">Logo &amp; Branding</span></a></li>
+                                </ul>
+            
+                                <!-- Tabs -->
+                                <div class="gtco-tab-content-wrap">
+            
+                                    <div class="gtco-tab-content tab-content active" data-tab-content="1">
+                                        <div class="col-md-6">
+                                           
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h2>Movie</h2>
+                                        </div>
+                                        
+                                        <div class="container-fluid pt70 pb70">
+                                            <div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+                                                <div class="fh5co-project masonry-brick">
+                                                    
+                                                    <div class="zoom">
+                                                    <!-- <a href="single.html"> -->
+                                                        <img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
+                                                    </div>
+                                                        
+                                                    </a>
+                                                </br>
+                                                    <div class="case">
+                                                    <label class="case"> Pulp Fiction
+                                                    <input type="checkbox" id="check">
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                                    
+                                                <div class="fh5co-project masonry-brick">
+                                                    <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
+                                                    </div>
+                                                          
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">The GodFater
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                </div>
+                                               
+                                                <div class="fh5co-project masonry-brick">
+                                                    <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://m.media-amazon.com/images/M/MV5BMjJmYTNkNmItYjYyZC00MGUxLWJhNWMtZDY4Nzc1MDAwMzU5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
+                                                             
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Fight CLub
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://m.media-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
+                                                              
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">The Usual Suspects
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
+                                                               
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Taxi Driver
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://m.media-amazon.com/images/M/MV5BM2M1MmVhNDgtNmI0YS00ZDNmLTkyNjctNTJiYTQ2N2NmYzc2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
+                                                                
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">The Green Mile
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                </div>
+                                            </div>
+                                               
+                                            <!--END .fh5co-projects-feed-->
+                                        </div>
+                                        <!-- END .container-fluid -->
+                                    
+                                            </div>
+            
+                                        </div>
+                                    </div>
+            
+                                    <div class="gtco-tab-content tab-content" data-tab-content="2">
+                                        
+                                       
+                                            <h2>Actor</h2>
+                                            <div class="container-fluid pt70 pb70">
+                                                <div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+                                                    <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                        <a href="single.html">
+                                                            <img src="https://image.tmdb.org/t/p/original/jJcRWku3e9OHrmRqytn6WcBjhvh.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                        </div>
+                                                             
+                                                        </a>
+                                                    </br>
+                                                    <div class="case">
+                                                    <label class="case">Natalie Portman
+                                                    <input type="checkbox" id="check">
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                                    </div>
+                                                    <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                        <a href="single.html">
+                                                            <img src="https://image.tmdb.org/t/p/original/5V4OKHQpIEffF9rqgzGYK4TNaGg.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                        </div>
+                                                              
+                                                        </a>
+                                                    </br>
+                                                    <div class="case">
+                                                    <label class="case">Will Smith
+                                                    <input type="checkbox" id="check">
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                                    </div>
+                                                   
+                                                    <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                        <a href="single.html">
+                                                            <img src="https://image.tmdb.org/t/p/original/naZyy9IqAQDaAbr1kYShLdg6aPR.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                                 
+                                                        </a>
+                                                    </br>
+                                                    <div class="case">
+                                                    <label class="case">Jennifer Lawrence
+                                                    <input type="checkbox" id="check">
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fh5co-project masonry-brick">
+                                                            <div class="zoom">
+                                                        <a href="single.html">
+                                                            <img src="https://image.tmdb.org/t/p/original/jqbqNrOIB3alGMX6Gh2MbOKMXZO.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                                  
+                                                        </a>
+                                                    </br>
+                                                    <div class="case">
+                                                    <label class="case">Leonardo DiCaprio
+                                                    <input type="checkbox" id="check">
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fh5co-project masonry-brick">
+                                                            <div class="zoom">
+                                                        <a href="single.html">
+                                                            <img src="https://image.tmdb.org/t/p/original/tN66wfXA5Y9v3wPIinLTrEEriac.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                                   
+                                                        </a>
+                                                    </br>
+                                                    <div class="case">
+                                                    <label class="case">Jessica Chastain
+                                                    <input type="checkbox" id="check">
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="fh5co-project masonry-brick">
+                                                            <div class="zoom">
+                                                        <a href="single.html">
+                                                            <img src="https://image.tmdb.org/t/p/original/jdRmHrG0TWXGhs4tO6TJNSoL25T.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                                    
+                                                        </a>
+                                                    </br>
+                                                    <div class="case">
+                                                    <label class="case">Matthew McConaughey
+                                                    <input type="checkbox" id="check">
+                                                    <span class="checkmark"></span>
+                                                </div>
+                                                    </div>
+                                                   
+                                                <!--END .fh5co-projects-feed-->
+                                            </div>
+                                            <!-- END .container-fluid -->
+            
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                
+
+                                    <div class="gtco-tab-content tab-content" data-tab-content="3">
+                                        
+                                       
+                                        <h2>Director</h2>
+                                        <div class="container-fluid pt70 pb70">
+                                            <div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+                                                <div class="fh5co-project masonry-brick">
+                                                    <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://image.tmdb.org/t/p/original/7OGmfDF4VHLLgbjxuEwTj3ga0uQ.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                    </div>
+                                                         
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Christopher Nolan
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                </div>
+                                                <div class="fh5co-project masonry-brick">
+                                                    <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://image.tmdb.org/t/p/original/9ci4NBvHXJktxjALdJsrtasqgtV.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                    </div>
+                                                          
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Quentin Tarantino
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                </div>
+                                               
+                                                <div class="fh5co-project masonry-brick">
+                                                    <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://image.tmdb.org/t/p/original/2TzRsqSx0xb1DK3HsEQKSXhRGcu.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                             
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Luc Besson
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://image.tmdb.org/t/p/original/yGs4PPDPTJV687P1NdydeEFzYRK.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                              
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Martin Scorsese
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://image.tmdb.org/t/p/original/yHEHAHQpN9PfSEQx1UxZPczhcAi.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                               
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Tim Burton
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="fh5co-project masonry-brick">
+                                                        <div class="zoom">
+                                                    <a href="single.html">
+                                                        <img src="https://image.tmdb.org/t/p/original/pOK15UNaw75Bzj7BQO1ulehbPPm.jpg" alt="Tom Hanksks" width="300" height="426">
+                                                                
+                                                    </a>
+                                                </br>
+                                                <div class="case">
+                                                <label class="case">Steven Spielberg
+                                                <input type="checkbox" id="check">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                        </div>
+                                       
+                                    <!--END .fh5co-projects-feed-->
+                                </div>
+                                <!-- END .container-fluid -->
+
+                            </div>
+                        </div>
+                    </div>
+    
+            
+                                    
+                    <div class="gtco-tab-content tab-content" data-tab-content="4">
+                                        
+                                       
+                    <h2>Genre</h2>
+                    <div class="container-fluid pt70 pb70">
+                        <div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+                            <div class="fh5co-project masonry-brick">
+                                <div class="zoom">
+                                <a href="single.html">
+                                    <img src="{{url_for('static', filename='img/1.png')}}"  >
+                                </div>
+                                     
+                                </a>
+                            </br>
+                            <div class="case">
+                            <label class="case">Comédie
+                            <input type="checkbox" id="check">
+                            <span class="checkmark"></span>
+                        </div>
+                    </div>
+
+                            <div class="fh5co-project masonry-brick">
+                                <div class="zoom">
+                                <a href="single.html">
+                                    <img src="{{url_for('static', filename='img/2.png')}}" >
+                                </div>
+                                      
+                                </a>
+                            </br>
+                            <div class="case">
+                            <label class="case">Quentin Tarantino
+                            <input type="checkbox" id="check">
+                            <span class="checkmark"></span>
+                        </div>
+                            </div>
+                           
+                            <div class="fh5co-project masonry-brick">
+                                <div class="zoom">
+                                <a href="single.html">
+                                    <img src="{{url_for('static', filename='img/3.png')}}" >
+                                         
+                                </a>
+                            </br>
+                            <div class="case">
+                            <label class="case">Luc Besson
+                            <input type="checkbox" id="check">
+                            <span class="checkmark"></span>
+                        </div>
+                                </div>
+                            </div>
+                            <div class="fh5co-project masonry-brick">
+                                    <div class="zoom">
+                                <a href="single.html">
+                                    <img src="{{url_for('static', filename='img/4.png')}}" >
+                                          
+                                </a>
+                            </br>
+                            <div class="case">
+                            <label class="case">Martin Scorsese
+                            <input type="checkbox" id="check">
+                            <span class="checkmark"></span>
+                        </div>
+                                </div>
+                            </div>
+                            <div class="fh5co-project masonry-brick">
+                                    <div class="zoom">
+                                <a href="single.html">
+                                    <img src="{{url_for('static', filename='img/5.png')}}" >
+                                           
+                                </a>
+                            </br>
+                            <div class="case">
+                            <label class="case">Tim Burton
+                            <input type="checkbox" id="check">
+                            <span class="checkmark"></span>
+                        </div>
+                                </div>
+                            </div>
+                            <div class="fh5co-project masonry-brick">
+                                    <div class="zoom">
+                                <a href="single.html">
+                                    <img src="{{url_for('static', filename='img/6.png')}}" >
+                                            
+                                </a>
+                            </br>
+                            <div class="case">
+                            <label class="case">Steven Spielberg
+                            <input type="checkbox" id="check">
+                            <span class="checkmark"></span>
+                        </div>
+
+                        <div class="fh5co-project masonry-brick">
+                            <div class="zoom">
+                            <a href="single.html">
+                                <img src="{{url_for('static', filename='img/7.png')}}" >
+                            </div>
+                                  
+                            </a>
+                        </br>
+                        <div class="case">
+                        <label class="case">Quentin Tarantino
+                        <input type="checkbox" id="check">
+                        <span class="checkmark"></span>
+                    </div>
+                        </div>
+
+                        <div class="fh5co-project masonry-brick">
+                            <div class="zoom">
+                            <a href="single.html">
+                                <img src="{{url_for('static', filename='img/8.png')}}" >
+                            </div>
+                                  
+                            </a>
+                        </br>
+                        <div class="case">
+                        <label class="case">Quentin Tarantino
+                        <input type="checkbox" id="check">
+                        <span class="checkmark"></span>
+                    </div>
+                        </div>
+
+
+                        <div class="fh5co-project masonry-brick">
+                            <div class="zoom">
+                            <a href="single.html">
+                                <img src="{{url_for('static', filename='img/9.png')}}" >
+                            </div>
+                                  
+                            </a>
+                        </br>
+                        <div class="case">
+                        <label class="case">Quentin Tarantino
+                        <input type="checkbox" id="check">
+                        <span class="checkmark"></span>
+                    </div>
+                        </div>
+
+
+                        <div class="fh5co-project masonry-brick">
+                            <div>
+                            <div class="zoom">
+                            <a href="single.html">
+                                <img src="{{url_for('static', filename='img/10.png')}}" >
+                            </div>
+                        </div>      
+                            </a>
+                        </br>
+                        <div class="case">
+                        <label class="case">Quentin Tarantino
+                        <input type="checkbox" id="check">
+                        <span class="checkmark"></span>
+                    </div>
+                        </div>
+                    </div>
+                        
+                        <!--END .fh5co-projects-feed-->
+                    </div>
+                    <!-- END .container-fluid -->
+
+                </div>
+            </div>
+        </div>
+                                        
+            
+        </div>
+    </div>
+
+
+
+
+
+			
+	
+		<!-- jQuery -->
+		<script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+		<!-- Bootstrap -->
+		<script type="text/javascript" src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+		<!-- masonry -->
+		<script type="text/javascript" src="{{ url_for('static', filename='jquery.masonry.min.js') }}"></script>
+		<!-- MAIN JS -->
+		<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+
+	
+	
+	<!-- jQuery -->
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+
+	<!-- jQuery Easing -->
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.easing.1.3.js') }}"></script>
+
+	<!-- Bootstrap -->
+	<script type="text/javascript" src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+
+	<!-- Waypoints -->
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.waypoints.min.js') }}"></script>
+	<!-- Carousel -->
+	<script type="text/javascript" src="{{ url_for('static', filename='owl.carousel.min.js') }}"></script>
+
+	<!-- countTo -->
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.countTo.js') }}"></script>
+
+	<!-- Magnific Popup -->
+	<script type="text/javascript" src="{{ url_for('static', filename='jquery.magnific-popup.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='magnific-popup-options.js') }}"></script>
+
+	<!-- Main -->
+	<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+
+	</body>
+</html>
+
+
+
+
