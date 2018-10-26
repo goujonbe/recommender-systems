@@ -6,6 +6,7 @@ import sqlite3
 from flask import render_template
 from sqlalchemy import and_
 from creation_bd import Customer
+from creation_bd import Movie
 from creation_bd import db
 from creation_bd import app
 from sqlalchemy import func 
@@ -21,11 +22,11 @@ def start():
             Customer.customer_id==int(request.form['customer_id']),
             Customer.password==request.form['password'])
             ).count()
-  
+
         if (not(customer_is_in_db)):
             error = 'Invalid Credentials. Please try again.'
             print("ko")
-            return render_template('signup.html', error=error)
+            return render_template('start.html', error=error)
          
         else:
             return redirect(url_for('home'))
@@ -65,11 +66,26 @@ def account():
 
 @app.route('/movie/')
 def movie():
+    case_movie = db.session.query.filter(Movie.title=="Pulp Fiction").all()
+    print(case_movie)
     return render_template('movie.html')
 
 @app.route('/taste/')
 def taste():
-    return render_template('taste.html')
+    
+    liste_title = db.session.query(Movie.title).all()
+    title = [titre[0] for titre in liste_title]
+    
+    liste_poster = db.session.query(Movie.poster).all()
+    poster = [affiche[0] for affiche in liste_poster]
+
+    liste_plot = db.session.query(Movie.plot).all()
+    plot = [resume[0] for resume in liste_plot]
+    print(title)
+    print(poster)
+    print(plot)
+
+    return render_template('taste.html',liste_title=liste_title,title=title,poster=poster, plot=plot)
 
 
 @app.route('/home/', methods=["GET"])
