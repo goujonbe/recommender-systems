@@ -6,6 +6,7 @@ Created on Tue Oct 16 14:11:35 2018
 @author: benoit
 """
 import csv
+import sys
 
 def get_line_without_commas_in_title_column(line):
     split_line = line.split(',')
@@ -16,9 +17,9 @@ def get_line_without_commas_in_title_column(line):
     
     
 
-def create_csv_file_from_csv_without_commas(file_path_original_file, file_path_destination_file):
-    with open(file_path_original_file, 'r', encoding = "ISO-8859-1") as original_file, \
-        open(file_path_destination_file, 'w') as destination_file:
+def create_csv_file_from_csv_without_commas(path_original_file, path_destination_file):
+    with open(path_original_file, 'r', encoding = "ISO-8859-1") as original_file, \
+        open(path_destination_file, 'w') as destination_file:
         lines = original_file.readlines()
         writer = csv.writer(destination_file, delimiter=',')
         writer.writerow(['id', 'date', 'title'])
@@ -26,7 +27,7 @@ def create_csv_file_from_csv_without_commas(file_path_original_file, file_path_d
             final_line = get_line_without_commas_in_title_column(line)
             writer.writerow(final_line)
 
-
-create_csv_file_from_csv_without_commas(
-        '/data/pfe/subfiles_movie_titles/movie_titles_from_1200_to_the_end.csv', 
-        '/data/pfe/subfiles_movie_titles/movie_titles_from_1200_to_the_end_without_commas.csv')
+if __name__ == '__main__':
+    path_origin_file = sys.argv[1]
+    path_target_file = sys.argv[2]
+    create_csv_file_from_csv_without_commas(path_origin_file, path_target_file)
