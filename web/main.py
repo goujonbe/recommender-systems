@@ -1,19 +1,64 @@
 import flask
-from flask import Flask, url_for
-app = Flask(__name__)
-
-
+from flask import Flask, url_for, redirect
+from flask_sqlalchemy import SQLAlchemy
 from flask import request
 import sqlite3 
 from flask import render_template
+from sqlalchemy import and_
+from creation_bd import Customer
+from creation_bd import Movie
+from creation_bd import db
+from creation_bd import app
+from sqlalchemy import func 
 
-@app.route('/')
+
+@app.route('/', methods=['GET', 'POST'])
 def start():
+    
+    
+    if request.method == 'POST':
+        
+        customer_is_in_db = Customer.query.filter(and_(
+            Customer.customer_id==int(request.form['customer_id']),
+            Customer.password==request.form['password'])
+            ).count()
+
+        if (not(customer_is_in_db)):
+            error = 'Invalid Credentials. Please try again.'
+            print("ko")
+            return render_template('start.html', error=error)
+         
+        else:
+            return redirect(url_for('home'))
+            print("ok")
     return render_template('start.html')
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html')
+    if request.method == 'POST':
+        # customer_already_exist = Customer.query.filter(
+        #     Customer.customer_id==int(request.form['customer_id']))
+
+
+        liste = db.session.query(Customer.customer_id).all()
+        ids = [id[0] for id in liste]
+        print(ids)
+        if (int(request.form['customer_id']) in ids):
+            error = 'Invalid Credentials. Please try again.'
+            print("ko")
+            return render_template('signup.html', error=error)
+        else:
+            new_customer = Customer(int(request.form['customer_id']),request.form['password'])
+            db.session.add(new_customer)
+            db.session.commit()
+            return redirect(url_for('taste'))
+            
+    
+    id_max = db.session.query(func.max(Customer.customer_id)).first()
+    print(id_max)
+    print(type(id_max))
+    new_id = int(id_max[0]) + 1        
+    return render_template('signup.html', new_id=new_id)
 
 @app.route('/account/')
 def account():
@@ -21,47 +66,31 @@ def account():
 
 @app.route('/movie/')
 def movie():
+    case_movie = db.session.query.filter(Movie.title=="Pulp Fiction").all()
+    print(case_movie)
     return render_template('movie.html')
 
 @app.route('/taste/')
 def taste():
-    return render_template('taste.html')
+    
+    liste_title = db.session.query(Movie.title).all()
+    title = [titre[0] for titre in liste_title]
+    
+    liste_poster = db.session.query(Movie.poster).all()
+    poster = [affiche[0] for affiche in liste_poster]
+
+    liste_plot = db.session.query(Movie.plot).all()
+    plot = [resume[0] for resume in liste_plot]
+    print(title)
+    print(poster)
+    print(plot)
+
+    return render_template('taste.html',liste_title=liste_title,title=title,poster=poster, plot=plot)
 
 
-@app.route('/home/', methods=["POST","GET"])
+@app.route('/home/', methods=["GET"])
 #return render_template('hello.html', name=name)
 def home():
-    file = open("/home/celia/pfe/formated/combined_data_1.csv","r") 
-    db = sqlite3.connect('/home/celia/pfe/start/web/netflix.db')
-
-    # Get a cursor object
-    cursor = db.cursor()
-    cursor.execute('DROP TABLE IF EXISTS client;')
-    db.commit()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS client(movie_id INTEGER, customer_id INTEGER,rating INTEGER,date date);
-    ''')
-    db.commit()
-
-
-    cursor = db.cursor()
-
-    
-    # Insert user 1
-    cursor.execute('''INSERT INTO client(movie_id,customer_id, rating, date)
-                    VALUES(?,?,?,?)''', (1,2,3, "2005-09-06"))
-    print('First user inserted')
-    
-    # Insert user 2
-    cursor.execute('''INSERT INTO client(movie_id,customer_id, rating, date)
-                    VALUES(?,?,?,?)''', (2,5,7, "2005-09-06"))
-    print('Second user inserted')
-    
-    db.commit()
-
-    db.close()
-
-
     return render_template('index.html')
 
 
