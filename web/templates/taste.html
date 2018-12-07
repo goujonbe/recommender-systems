@@ -208,9 +208,9 @@
                                     <li class="active"><a href="#" data-tab="1"><span class="icon visible-xs"><i class="icon-command"></i></span><span class="hidden-xs">Movie</span></a></li>
                                     <li><a href="#" data-tab="2"><span class="icon visible-xs"><i class="icon-bar-graph"></i></span><span class="hidden-xs">Actor</span></a></li>
                                     <li><a href="#" data-tab="3"><span class="icon visible-xs"><i class="icon-bag"></i></span><span class="hidden-xs">Director</span></a></li>
-                                    <li><a href="#" data-tab="4"><span class="icon visible-xs"><i class="icon-box"></i></span><span class="hidden-xs">Logo &amp; Branding</span></a></li>
+                                    <li><a href="#" data-tab="4"><span class="icon visible-xs"><i class="icon-box"></i></span><span class="hidden-xs">Genre</span></a></li>
                                 </ul>
-            
+                            <form action="{{url_for('home')}}" method="POST" class="form-inline">
                                 <!-- Tabs -->
                                 <div class="gtco-tab-content-wrap">
             
@@ -248,7 +248,7 @@
                                                             </div>
                                                             </a>    
                                                    
-                                                </br>
+                                                <br/>
                                                         <div class="case">
                                                             <label class="case">The GodFater
                                                             <input type="checkbox" id="check">
@@ -323,7 +323,7 @@
             
                                     <div class="gtco-tab-content tab-content" data-tab-content="2">
                                         
-                                       
+                                            <div class="col-md-6"></div>
                                             <h2>Actor</h2>
                                             <div class="container-fluid pt70 pb70">
                                                 <div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
@@ -334,7 +334,7 @@
                                                         </div>
                                                              
                                                         </a>
-                                                    </br>
+                                                    <br/>
                                                     <div class="case">
                                                     <label class="case">Natalie Portman
                                                     <input type="checkbox" id="check">
@@ -424,7 +424,7 @@
 
                                     <div class="gtco-tab-content tab-content" data-tab-content="3">
                                         
-                                       
+                                        <div class="col-md-6"></div>
                                         <h2>Director</h2>
                                         <div class="container-fluid pt70 pb70">
                                             <div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
@@ -524,44 +524,45 @@
 
                     <div class="gtco-tab-content tab-content" data-tab-content="4">
                                         
-                                       
+                            <div class="col-md-6"></div>          
                             <h2>Genre</h2>
                             <div class="container-fluid pt70 pb70">
                                 <div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+
                                     <div class="fh5co-project masonry-brick">
                                         <div class="zoom">
                                             <a href="single.html">
                                             <img src="{{url_for('static', filename='img/1.png')}}" width="100" height="100" style="margin-left: auto; margin-right: auto">
-                                        </div>
-                                                
-                                            </a>
-                                        <br>
+                                        </div> </a>
+                                            
+                                        <br/>
                                         <div class="case">
                                             <label class="case">History
                                             <input type="checkbox" id="check">
                                             <span class="checkmark"></span>
                                         </div>
                                     </div>
+
                                     <div class="fh5co-project masonry-brick">
                                         <div class="zoom">
                                             <img src="{{url_for('static', filename='img/2.png')}}" width="100" height="100">
                                         </div> 
                                         
-                                    <br>
-                                    <div class="case">
-                                    <label class="case">Western
-                                    <input type="checkbox" id="check">
-                                    <span class="checkmark"></span>
-                                </div>
+                                        <br/>
+                                        <div class="case">
+                                            <label class="case">Western
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
                                     </div>
                                    
                                     <div class="fh5co-project masonry-brick">
                                         <div class="zoom">
-                                        <a href="single.html">
-                                                <img src="{{url_for('static', filename='img/3.png')}}" width="100" height="100">
+                                            <a href="single.html">
+                                            <img src="{{url_for('static', filename='img/3.png')}}" width="100" height="100">
                                         </div>     
                                         </a>
-                                        <br>
+                                        <br/>
                                         <div class="case">
                                             <label class="case">Comedy
                                             <input type="checkbox" id="check">
@@ -570,102 +571,373 @@
                                     </div>
                                     
                                     <div class="fh5co-project masonry-brick">
-                                            <div class="zoom">
+                                        <div class="zoom">
                                             <a href="single.html">
-                                                    <img src="{{url_for('static', filename='img/4.png')}}" width="100" height="100">
-                                            </div>     
-                                            </a>
-                                            <br>
-                                            <div class="case">
-                                                <label class="case">Sciences-fiction
-                                                <input type="checkbox" id="check">
-                                                <span class="checkmark"></span>
-                                            </div>
+                                            <img src="{{url_for('static', filename='img/4.png')}}" width="100" height="100">
+                                        </div> </a>
+                                        <br/>
+                                        <div class="case">
+                                            <label class="case">Sciences-fiction
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
                                         </div>
+                                    </div>
 
-                                        <div class="fh5co-project masonry-brick">
-                                                <div class="zoom">
-                                                <a href="single.html">
-                                                        <img src="{{url_for('static', filename='img/5.png')}}" width="100" height="100">
-                                                </div>     
-                                                </a>
-                                                <br>
-                                                <div class="case">
-                                                    <label class="case">Kids
-                                                    <input type="checkbox" id="check">
-                                                    <span class="checkmark"></span>
-                                                </div>
-                                            </div>
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                            <a href="single.html">
+                                            <img src="{{url_for('static', filename='img/5.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br/>
+                                        <div class="case">
+                                            <label class="case">Kids
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
 
-                                            <div class="fh5co-project masonry-brick">
-                                                    <div class="zoom">
-                                                    <a href="single.html">
-                                                            <img src="{{url_for('static', filename='img/6.png')}}" width="100" height="100">
-                                                    </div>     
-                                                    </a>
-                                                    <br>
-                                                    <div class="case">
-                                                        <label class="case">Romantic
-                                                        <input type="checkbox" id="check">
-                                                        <span class="checkmark"></span>
-                                                    </div>
-                                                </div>
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/6.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Romantic
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
 
-                                                <div class="fh5co-project masonry-brick">
-                                                        <div class="zoom">
-                                                        <a href="single.html">
-                                                                <img src="{{url_for('static', filename='img/7.png')}}" width="100" height="100">
-                                                        </div>     
-                                                        </a>
-                                                        <br>
-                                                        <div class="case">
-                                                            <label class="case">Horror
-                                                            <input type="checkbox" id="check">
-                                                            <span class="checkmark"></span>
-                                                        </div>
-                                                    </div>
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                            <a href="single.html">
+                                            <img src="{{url_for('static', filename='img/7.png')}}" width="100" height="100">
+                                        </div>   </a>  
+                                        
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Horror
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
 
-                                                <div class="fh5co-project masonry-brick">
-                                                        <div class="zoom">
-                                                        <a href="single.html">
-                                                                <img src="{{url_for('static', filename='img/8.png')}}" width="100" height="100">
-                                                        </div>     
-                                                        </a>
-                                                        <br>
-                                                        <div class="case">
-                                                            <label class="case">Action
-                                                            <input type="checkbox" id="check">
-                                                            <span class="checkmark"></span>
-                                                        </div>
-                                                    </div>
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/8.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Action
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
 
-                                                    <div class="fh5co-project masonry-brick">
-                                                            <div class="zoom">
-                                                            <a href="single.html">
-                                                                    <img src="{{url_for('static', filename='img/9.png')}}" width="100" height="100">
-                                                            </div>     
-                                                            </a>
-                                                            <br>
-                                                            <div class="case">
-                                                                <label class="case">Detective
-                                                                <input type="checkbox" id="check">
-                                                                <span class="checkmark"></span>
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/9.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Detective
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/10.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">War
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/11.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Adult
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/12.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Musical
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/13.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Film noir
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/14.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Short
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/15.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Fantasy
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/16.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Adventure
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/17.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Biography
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/18.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Sport
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/19.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Talk-show
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/20.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Game
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/21.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Family
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/22.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">TV reality
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/23.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Crime
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+    
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/24.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">News
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/25.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Documentary
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/26.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Mysterious
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+    
+                                    <div class="fh5co-project masonry-brick">
+                                        <div class="zoom">
+                                        <a href="single.html">
+                                                <img src="{{url_for('static', filename='img/27.png')}}" width="100" height="100">
+                                        </div>     
+                                        </a>
+                                        <br>
+                                        <div class="case">
+                                            <label class="case">Drama
+                                            <input type="checkbox" id="check">
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </div>
+                                                         
+                                                            
+                                                            <div class="col-md-4 col-sm-4">
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                    <br/>
+                                                                <button type="submit" class="btn btn-default btn-block">SUBMIT</button>
                                                             </div>
-                                                        </div>
-
-                                                        <div class="fh5co-project masonry-brick">
-                                                                <div class="zoom">
-                                                                <a href="single.html">
-                                                                        <img src="{{url_for('static', filename='img/10.png')}}" width="100" height="100">
-                                                                </div>     
-                                                                </a>
-                                                                <br>
-                                                                <div class="case">
-                                                                    <label class="case">War
-                                                                    <input type="checkbox" id="check">
-                                                                    <span class="checkmark"></span>
-                                                                </div>
-                                                            </div>
+                                                        </form>
                            
                         <!--END .fh5co-projects-feed-->
                     </div>

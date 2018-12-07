@@ -1,15 +1,17 @@
 import flask
-from flask import Flask, url_for, redirect
+from flask import Flask, session, redirect, url_for, escape, request
 from flask_sqlalchemy import SQLAlchemy
 from flask import request
 import sqlite3 
 from flask import render_template
 from sqlalchemy import and_
-from creation_bd import Customer
-from creation_bd import Movie
-from creation_bd import db
-from creation_bd import app
+from creation_bd import Customer,Movie,Rate,db,app
 from sqlalchemy import func 
+from datetime import datetime
+from datetime import date
+import requests
+
+app.secret_key = b'pfe_netflix'
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -22,6 +24,8 @@ def start():
             Customer.customer_id==int(request.form['customer_id']),
             Customer.password==request.form['password'])
             ).count()
+        
+        session['customer_id'] = int(request.form['customer_id'])
 
         if (not(customer_is_in_db)):
             error = 'Invalid Credentials. Please try again.'
@@ -53,7 +57,6 @@ def signup():
             db.session.commit()
             return redirect(url_for('taste'))
             
-    
     id_max = db.session.query(func.max(Customer.customer_id)).first()
     print(id_max)
     print(type(id_max))
@@ -64,11 +67,35 @@ def signup():
 def account():
     return render_template('about.html')
 
-@app.route('/movie/')
-def movie():
-    case_movie = db.session.query.filter(Movie.title=="Pulp Fiction").all()
-    print(case_movie)
-    return render_template('movie.html')
+@app.route('/movie/<int:movie_id>', methods=['GET','POST'])
+def movie(movie_id):
+    #case_movie = db.session.query.filter(Movie.title=="Pulp Fiction").all()
+    #print(case_movie)
+
+         
+    if request.method == 'POST':
+        note = int(request.form['rating'])
+        print('note =', note)
+        print('customer_id =', session['customer_id'])
+        print('movie id = ', movie_id)
+        date = datetime.now()
+        print(date)
+
+        new_rate = Rate(session['customer_id'],movie_id,int(note),date)
+        db.session.add(new_rate)
+        db.session.commit()
+
+
+    else:
+        movie_data = db.session.query(Movie.movie_id, Movie.poster, Movie.year, Movie.title, Movie.plot)\
+        .filter(Movie.movie_id == movie_id)\
+        .first()
+
+        print(movie_data)
+
+
+    
+    return render_template('movie.html', movie_data=movie_data)
 
 @app.route('/taste/')
 def taste():
@@ -85,13 +112,25 @@ def taste():
     print(poster)
     print(plot)
 
+  
+
     return render_template('taste.html',liste_title=liste_title,title=title,poster=poster, plot=plot)
 
 
-@app.route('/home/', methods=["GET"])
+@app.route('/home/', methods=['GET'])
 #return render_template('hello.html', name=name)
 def home():
-    return render_template('index.html')
+    customer_id = session['customer_id']
+    requete_api = requests.get('http://127.0.0.1:5001/{}'.format(customer_id))
+    movies = requete_api.json()['{}'.format(customer_id)]
+    print(movies)
+    movies_in_db = db.session.query(Movie.movie_id, Movie.poster, Movie.title) \
+    .filter(Movie.movie_id.in_(movies))\
+    .all()  
+
+
+
+    return render_template('index.html', movies=movies_in_db)
 
 
 

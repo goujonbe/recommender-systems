@@ -61,132 +61,89 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	<div class="gtco-loader"></div>
-	
-	<div id="page">
-	<nav class="gtco-nav" role="navigation">
-		<div class="gtco-container">
-			<div class="row">
-				<div class="col-xs-2">
-						<div id="gtco-logo">PFE NETFLIX</div>
-						</div>
-						<div class="col-xs-10 text-right menu-1">
-							<ul>
-									<li class="active"><a href="{{url_for('home')}}">Home</a></li>
-									<li><a href="{{url_for('account')}}">Account</a></li>
-									<li><a href="{{url_for('start')}}">Exit</a></li>
-						
-					</ul>
-				</div>
-			</div>
-			
-		</div>
-	</nav>
 
-	<header id="gtco-header" class="gtco-cover" role="banner" style="background-color: rgba(15, 14, 14, 0.849);">
-		<div class="overlay"></div>
-		<div class="gtco-container">
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0 text-center">
+	<div id="page">
+		<nav class="gtco-nav" role="navigation">
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-xs-2">
+							<div id="gtco-logo"><a href="{{url_for('home')}}">PFE NETFLIX</a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="{{url_for('home')}}">Home</a></li>
+							<li><a href="{{url_for('account')}}">Account</a></li>
+							<li><a href="{{url_for('start')}}">Exit</a></li>
+							
+							
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</nav>
+
+		<header id="gtco-header"  role="banner" style="background-color: rgba(0, 0, 0);">
+			<div class="overlay"></div>
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-md-1 col-md-offset-4 text-center">
+						<div class="display-t">
+							<div class="display-tc animate-box" data-animate-effect="fadeIn">
+								<h1>MOVIES</h1>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</header>
+</div>
+	
+<br/>
+<div id="gtco-features-1">
+		<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>BONJOUR JOHN</h1>
-							<p>
-								<a href="#movies" class="btn btn-primary btn-lg">Get Started</a> 
-								<a href="#" class="btn btn-white btn-outline btn-lg">Download</a></p>
+							<h2>Watch our movies recommanded for you</h2>
+						
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
-	
+
 	
 
-</div>
-
-<div id="gtco-features-2">
-		<div class="gtco-container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-					<h2>Watch our movies recommanded for you</h2>
-
-				</div>
-			</div>
-			</div>
-
-	<div class="container-fluid pt70 pb70">
-	
+	<div class="container-fluid">
 		<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
-			<div class="fh5co-project masonry-brick">
-				<div class="zoom">
-				<a href="{{url_for('movie')}}">
-					<img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-				</div>
-					 
-				</a>
-			</div>
-			<div class="fh5co-project masonry-brick">
-				<div class="zoom">
-				<a href="single.html">
-					<img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-				</div>
-					  
-				</a>
-			</div>
-			<div class="fh5co-project masonry-brick">
-				<div class="zoom">
-				<a href="single.html">
-					<img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-					   
-				</a>
-				</div>
-			</div>
-			<div class="fh5co-project masonry-brick">
-				<div class="zoom">
-				<a href="single.html">
-					<img src="https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-					    
-				</a>
-				</div>
-			</div>
-			<div class="fh5co-project masonry-brick">
-				<div class="zoom">
-				<a href="single.html">
-					<img src="https://m.media-amazon.com/images/M/MV5BMjJmYTNkNmItYjYyZC00MGUxLWJhNWMtZDY4Nzc1MDAwMzU5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-					     
-				</a>
-				</div>
-			</div>
-			<div class="fh5co-project masonry-brick">
-					<div class="zoom">
-				<a href="single.html">
-					<img src="https://m.media-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-					      
-				</a>
-				</div>
-			</div>
-			<div class="fh5co-project masonry-brick">
-					<div class="zoom">
-				<a href="single.html">
-					<img src="https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-					       
-				</a>
-				</div>
-			</div>
-			<div class="fh5co-project masonry-brick">
-					<div class="zoom">
-				<a href="single.html">
-					<img src="https://m.media-amazon.com/images/M/MV5BM2M1MmVhNDgtNmI0YS00ZDNmLTkyNjctNTJiYTQ2N2NmYzc2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-					        
-				</a>
-			</div>
-
-		
-		
-		<!--END .fh5co-projects-feed-->
+			{% for movie in movies %}
+				{% if movie[1] != "N/A" %}
+					<div class="fh5co-project masonry-brick">
+						<div class="zoom">
+							<a href="{{url_for('movie',movie_id=movie[0])}}">
+							<img src="{{ movie[1] }}"  width="300" height="426">
+							</a>
+							<br/>
+							<h4 style="text-center">{{movie[2]}}</h4>
+						</div>	
+					</div>
+				{% else %}
+					<div class="fh5co-project masonry-brick">
+						<div class="zoom">
+							<a href="{{url_for('movie',movie_id=movie[0])}}">
+							<img src="{{url_for('static', filename='img/pop.png')}}" width="300" height="426">
+							</a>
+							<br/>
+							<h4 style="text-center">{{movie[2]}}</h4>
+						</div>	
+					</div>
+				{% endif %}
+				
+			{% endfor %}
+		</div>
 	</div>
-	<!-- END .container-fluid -->
+</div>
 
 
 		<!-- jQuery -->

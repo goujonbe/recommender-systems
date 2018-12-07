@@ -1,0 +1,21 @@
+﻿INSERT INTO genre(genre) VALUES ('comedy');
+
+INSERT INTO genre(genre) VALUES ('western');
+
+INSERT INTO genre(genre) VALUES ('action');
+
+INSERT INTO genre(genre) VALUES ('war');
+
+INSERT INTO genre(genre) VALUES ('animation');
+
+INSERT INTO genre(genre) VALUES ('sciences-fiction');
+
+INSERT INTO genre(genre) VALUES ('history');
+
+INSERT INTO genre(genre) VALUES ('musical');
+
+INSERT INTO genre(genre) VALUES ('adventure');
+
+INSERT INTO genre(genre) VALUES ('thriller');
+
+INSERT INTO genre(genre) VALUES ('romantic');

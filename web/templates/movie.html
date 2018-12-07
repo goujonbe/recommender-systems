@@ -1,17 +1,62 @@
 <!DOCTYPE HTML>
-<!--
-	Greatness by FreeHTML5.co
-	Twitter: http://twitter.com/fh5co
-	URL: http://FreeHTML5.co
--->
 
 <style>
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
 
 .zoom:hover {
     -ms-transform: scale(1.1); /* IE 9 */
     -webkit-transform: scale(1.1); /* Safari 3-8 */
     transform: scale(1.1); 
 }
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
 
 </style>
 <html>
@@ -59,7 +104,7 @@
 	<script type="text/javascript" src="{{ url_for('static', filename='modernizr-2.6.2.min.js') }}"></script>
 
 
-    <div class="gtco-loader"></div>
+  
 	
 	<div id="page">
 			<nav class="gtco-nav" role="navigation">
@@ -83,75 +128,72 @@
 			</nav>
 
 			<header id="gtco-header"  role="banner" style="background-color: rgba(0, 0, 0);">
-					<div class="overlay"></div>
-					<div class="gtco-container">
-						<div class="row">
-							<div class="col-md-12 col-md-offset-3 text-center">
-								<div class="display-t">
-									<div class="display-tc animate-box" data-animate-effect="fadeIn">
-										<h1>RATE</h1>
-									
-									</div>
+				<div class="overlay"></div>
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-md-1 col-md-offset-4 text-center">
+							<div class="display-t">
+								<div class="display-tc animate-box" data-animate-effect="fadeIn">
+									<h1>RATE</h1>
+								
 								</div>
 							</div>
 						</div>
 					</div>
-				</header>
-
-
-				
-
-			<div class="row animate-box">
-				
-				<div class="gtco-tabs">
-					
-					<!-- Tabs -->
-					<div class="gtco-tab-content-wrap">
-
-						<div class="gtco-tab-content tab-content active" data-tab-content="1">
-							<div class="col-md-6">
-								<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
-                                        <div class="fh5co-project masonry-brick">
-                                            <div class="zoom">
-                                            <a href="single.html">
-                                                <img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Free HTML5 by FreeHTML5.co">
-                                            </div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<h2>Title movie</h2>
-								<p>The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.</p>
-
-								<p>Ullam dolorum iure dolore dicta fuga ipsa velit veritatis molestias totam fugiat soluta accusantium omnis quod similique placeat at. Dolorum ducimus libero fuga molestiae asperiores obcaecati corporis sint illo facilis.</p>
-
-								<div class="row">
-									<div class="col-md-6">
-										<h2 class="uppercase">Keep it simple</h2>
-										<p>Ullam dolorum iure dolore dicta fuga ipsa velit veritatis</p>
-									</div>
-									<div class="col-md-6">
-										<h2 class="uppercase">Less is more</h2>
-										<p>Ullam dolorum iure dolore dicta fuga ipsa velit veritatis</p>
-									</div>
-								</div>
-
-							</div>
-						</div>
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-
-
-	
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+				</div>	
+			</header>
 	</div>
-	
+	<br/>
+	<br/>
+	<div id="gtco-features-1">
+		<div class="gtco-tab-content tab-content active" >
+			<div class="col-md-4 col-md-offset-2">
+				<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+						<div class="fh5co-project masonry-brick">
+							<div class="zoom">
+								{% if movie_data[1] != "N/A" %}
+									<img src="{{movie_data[1]}}" width="300" height="426">
+								{% else %}
+									<img src="{{url_for('static', filename='img/pop.png')}}" width="300" height="426">
+								{% endif %}
+							</div>							
+					</div>
+				</div>
+			</div>
+			<br/>
+				
+			<div class="col-md-3">
+				<h2>{{movie_data[3]}}</h2>
+				<br/>
+				<p>{{movie_data[4]}}</p>
+				<br/>
+				<br/>
+				<h2 class="uppercase">Year</h2>
+				<p>{{movie_data[2]}}</p>
+				
+				<form action="{{url_for('movie',movie_id=movie_data[0])}}" method="POST" class="form-inline">
+				<fieldset class="rating">
+					
+					<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+					
+					<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+					
+					<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Good - 3 stars"></label>
+					
+					<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+					
+					<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Very bad - 1 star"></label>
+					
+				</fieldset>
+				<button type="submit" class="btn btn-default btn-block">SUBMIT</button>
+				</form>
+
+			</div>
+		</div>
+
+	</div>
+				
+
 		<!-- jQuery -->
 		<script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
 		<!-- Bootstrap -->
